@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "dbef88c7-378a-45ca-a467-64fed3a8e131",
+		"name": "RudderStack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17353576"
+	},
+	"item": [
+		{
+			"name": "TrackingPlan",
+			"item": [
+				{
+					"name": "Get All Tracking Plans",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/trackingplan/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"trackingplan",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Tracking Plan",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n        \"display_name\": \"Tracking Plan\",\n        \"rules\": {\n            \"events\": [\n                {\n                    \"name\": \"Order Viewed\",\n                    \"description\": \"Whose order viewed\",\n                    \"rules\": {\n                        \"$schema\": \"http://json-schema.org/draft-07/schema#\",\n                        \"type\": \"object\",\n                        \"properties\": {\n                            \"type\": \"object\",\n                            \"properties\": {\n                                \"product\": {\n                                    \"type\": [\n                                        \"string\"\n                                    ]\n                                },\n                                \"price\": {\n                                    \"type\": [\n                                        \"number\"\n                                    ]\n                                },\n                                \"currency\": {\n                                    \"type\": [\n                                        \"string\"\n                                    ]\n                                }\n                            },\n                            \"required\": [\n                                \"product\",\n                                \"price\",\n                                \"currency\"\n                            ]\n                        }\n                    }\n                }\n            ]\n        }\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/v1/trackingplan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"trackingplan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tracking Plan by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/trackingplan/64c6f1943572e35a6292b381",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"trackingplan",
+								"64c6f1943572e35a6292b381"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tracking Plan Display Name",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/trackingplan/64c6f1943572e35a6292b381/name?trackingPlanName=Testing",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"trackingplan",
+								"64c6f1943572e35a6292b381",
+								"name"
+							],
+							"query": [
+								{
+									"key": "trackingPlanName",
+									"value": "Testing"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tracking Plan with Existing Events List",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
