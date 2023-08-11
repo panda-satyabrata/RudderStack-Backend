@@ -26,10 +26,12 @@ public class EventsServiceImpl implements EventsService{
 
     @Override
     public Events update(String eventsName, Events events) throws NotFoundException {
-        if(findByName(events.getName()) == null){
+        Events savedEvent = findByName(eventsName);
+        if(savedEvent == null){
             throw new NotFoundException("Event doesn't exists for given name: " + eventsName);
         }
-        eventsRepository.deleteById(findByName(events.getName()).get_id());
+//        eventsRepository.deleteById(findByName(eventsName).get_id());
+        events.set_id(savedEvent.get_id());
         return eventsRepository.save(events);
     }
 
