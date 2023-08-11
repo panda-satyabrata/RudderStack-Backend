@@ -29,6 +29,7 @@ public class EventsServiceImpl implements EventsService{
         if(findByName(events.getName()) == null){
             throw new NotFoundException("Event doesn't exists for given name: " + eventsName);
         }
+        eventsRepository.deleteById(findByName(events.getName()).get_id());
         return eventsRepository.save(events);
     }
 
